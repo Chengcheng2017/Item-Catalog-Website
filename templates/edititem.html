@@ -1,0 +1,44 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row banner main">
+  <div class="col-md-1"></div>
+  <div class="col-md-11 padding-none">
+    <h1>Edit Movie</h1>
+  </div>
+</div>
+
+<div class="row padding-top">
+  <div class="col-md-10 col-md-offset-1 padding-top item">
+    <form action="{{url_for('editItem' ,categories_id=categories_id, items_id=items_id, item=editedItem)}}" method="POST">
+      <div class="form-group">
+        <label for="name"><h3>Name:</h3></label>
+        <input type="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+
+        <label for="description"><h3>Description:</h3></label>
+        <textarea class="form-control" maxlength="250" rows="5" name="description">{{item.description}}</textarea>
+
+        <label class="padding-top padding-bottom" for="Film genres">
+          <h3>Film genres:</h3>
+        </label>
+        <select name="categories_id">
+          <option value="" selected="selected"></option>
+          <option value=1>Action Films</option>
+          <option value=2>Adventure Films</option>
+          <option value=3>Comedy Films</option>
+          <option value=4>Drama Films</option>
+          <option value=5>HistoryFilms</option>
+          <option value=6>Military Films</option>
+          <option value=7>Musicals Films</option>
+          <option value=8>Romance</option>
+          <option value=9>Science Fiction Films</option>
+        </select>
+        <button type="submit" class="btn btn-defaul" id="submit" type="submit">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+        <a href='{{url_for('showItem',categories_id=categories_id, items_id=items_id)}}'>
+          <button class="btn btn-default delete">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

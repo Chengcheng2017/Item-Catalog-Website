@@ -1,0 +1,22 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row banner main">
+  <div class="col-md-1"></div>
+  <div class="col-md-11 padding-none">
+    <h1>Movie Details</h1>
+  </div>
+</div>
+
+<div class="row padding-top">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 item padding-bottom">
+    <h2>{{items.name}}</h2>
+    <a href="{{url_for('showCategories', categories_id=categories.id)}}">
+      <div>
+        <h3>{{categories.name}}</h3>
+      </div>
+    </a>
+    <h3>{{items.description}}</h3>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+{% endblock %}

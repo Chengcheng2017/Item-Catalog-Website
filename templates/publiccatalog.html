@@ -1,0 +1,50 @@
+{% extends "main.html" %} {% block content %} {% include "header.html" %}
+<div class="row banner main">
+  <div class="col-md-1"></div>
+  <div class="col-md-11 padding-none">
+    <h1>Movie Catalog</h1>
+  </div>
+</div>
+
+<div class="flash">
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul class="flash">
+    {% for message in messages %}
+    <h2>
+      <strong>{{message}}</strong>
+    </h2>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}‘
+</div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <h2>Categories</h2>
+      <div class="catalog-list">
+      {% for i in categories %}
+      <a href="{{url_for('showCategories', categories_id = i.id)}}">
+        <div>
+          <h3>{{i.name}}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    </div>
+    <div class="col-md-7">
+      <h2>Recent Added</h2>
+    <div class="movie-list">
+      {% for i in items %}
+      <a href="{{url_for('showItem',categories_id=i.categories_id, items_id=i.id)}}">
+        <div>
+          <h3>{{i.name}} - {{i.categories.name}}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+{% endblock %}
