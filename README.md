@@ -1,7 +1,7 @@
 # Item-Catalog-Website
 
 ## About
-
+This is a Item Catalog Website project that listing catagories of movies, and users are able to create, update and delete items after login.
 
 ## Tools
 - [Vagrant](https://www.vagrantup.com/)
